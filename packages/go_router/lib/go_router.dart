@@ -15,3 +15,12 @@ export 'src/platform.dart' show UrlPathStrategy;
 export 'src/route_data.dart' show GoRouteData, TypedGoRoute;
 export 'src/router.dart';
 export 'src/typedefs.dart' show GoRouterPageBuilder, GoRouterRedirect;
+
+/// It seems that locations that arrive from Android/iOS links
+/// have already been url-decoded. Because the router expects
+/// any path args to be encoded we need re-encode them before
+/// they are passed into the GoRouter parser. That means that
+/// we need to construct a new RoutInformation object with the
+/// encoded path, which means we need access to this class.
+export 'src/information_provider.dart' show DebugGoRouteInformation;
+
